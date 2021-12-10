@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+import sys
+
+def usage():
+    print("{} [best] [average] [worst]".format(sys.argv[0]))
+
+def pert(best, average, worst):
+    sum = best + (4 * average) + worst
+    return sum / 6
+
+if len(sys.argv) != 4:
+    usage()
+else:
+    try:
+        best = float(sys.argv[1])
+        average = float(sys.argv[2])
+        worst = float(sys.argv[3])
+        estimation = pert(best, average, worst)
+        print(estimation)
+    except:
+        usage()
+
+#/* vim:set ft=python */
